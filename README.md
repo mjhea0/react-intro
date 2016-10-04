@@ -4,11 +4,11 @@ This is client-side only...
 
 Contents:
 
-1. Project setup
-1. Lint the code
-1. Add a cat
-1. React setup
-1. Webpack setup
+1. [Project setup](https://github.com/mjhea0/react-intro#project-setup)
+1. [Lint the code](https://github.com/mjhea0/react-intro#lint-the-code)
+1. [Add a cat](https://github.com/mjhea0/react-intro#add-a-cat)
+1. [React setup](https://github.com/mjhea0/react-intro#react-setup)
+1. [Webpack setup](https://github.com/mjhea0/react-intro#webpack-setup)
 
 ## Project setup
 

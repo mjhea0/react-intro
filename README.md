@@ -15,6 +15,7 @@ Quick intro to [React](https://facebook.github.io/react/)...
 
 1. Explain what React is and how it compares to Angular
 1. Set up a modern React environment with Babel and Webpack
+1. Create and render a React component in the browser
 
 ## What is React?
 

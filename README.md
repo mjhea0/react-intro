@@ -11,6 +11,11 @@ Quick intro to [React](https://facebook.github.io/react/)...
 1. [React setup](https://github.com/mjhea0/react-intro#react-setup)
 1. [Webpack setup](https://github.com/mjhea0/react-intro#webpack-setup)
 
+**Objectives:**
+
+1. Explain what React is and how it compares to Angular
+1. Set up a modern React environment with Babel and Webpack
+
 ## What is React?
 
 > YOU: What is React? How does it compare to Angular?
@@ -311,8 +316,10 @@ To correct this, update the `eslintConfig` in *package.json*:
 Install:
 
 ```sh
-$ npm install --save-dev webpack babel-loader
+$ npm install --save-dev webpack@1.13.2 babel-loader@6.2.5
 ```
+
+> You: What's webpack? What does babel-loader do? Why all these damn tools?!?!
 
 Then add *webpack.config.js* to the project root:
 

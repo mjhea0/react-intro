@@ -91,8 +91,12 @@ hello, world!
 Install:
 
 ```sh
-$ npm install --save-dev eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react gulp-eslint
+$ npm install --save-dev eslint@3.7.1 eslint-config-airbnb@12.0.0
+$ npm install --save-dev eslint-plugin-import@2.0.0 eslint-plugin-jsx-a11y@2.2.2
+$ npm install --save-dev eslint-plugin-react@6.3.0 gulp-eslint@3.0.1
 ```
+
+> You: Why lint? What do those packages do?
 
 Add the config to *package.json*:
 
@@ -151,6 +155,8 @@ You should see a warning:
 ```
 
 Ignore it.
+
+> You: What are we ignoring it?
 
 ## Add a cat
 

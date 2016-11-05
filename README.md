@@ -204,13 +204,17 @@ Run `npm start`:
 Meow meow, I am Toby
 ```
 
+> You: What's happening here? What's bundle.js?
+
 ## React setup
 
 Install:
 
 ```sh
-npm install --save react react-dom
+npm install --save react@15.3.2 react-dom@15.3.2
 ```
+
+> You: What's react dom?
 
 Add a `div` to the *index.html*:
 
@@ -240,10 +244,12 @@ App.propTypes = {
 ReactDOM.render(<App message={catMeow} />, document.querySelector('.app'));
 ```
 
+> You: Is that HTML in a JS file? Why? What's JSX? Also, what does babel-preset-react do?
+
 To process the *.jsx* file, install:
 
 ```sh
-$ npm install --save-dev babel-preset-react
+$ npm install --save-dev babel-preset-react@6.16.0
 ```
 
 Update the `babel` field in *package.json*:
@@ -283,6 +289,8 @@ You should see the following error:
 /react-intro/src/client.jsx
   17:44  error  'document' is not defined  no-undef
 ```
+
+> You: Why did we get this error?
 
 To correct this, update the `eslintConfig` in *package.json*:
 

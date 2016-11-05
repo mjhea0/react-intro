@@ -21,6 +21,7 @@ Quick intro to [React](https://facebook.github.io/react/)...
 
 > YOU: What is React? How does it compare to Angular?
 
+
 ## Project setup
 
 Create a new project directory:
@@ -162,7 +163,7 @@ You should see a warning:
 
 Ignore it.
 
-> You: What are we ignoring it?
+> You: Why are we ignoring it?
 
 ## Add a cat
 
@@ -181,20 +182,6 @@ class Cat {
 module.exports = Cat;
 ```
 
-Then add a "dist" folder with an *index.html* file:
-
-```html
-<!doctype html>
-<html>
-  <head>
-    <title>React Intro</title>
-  </head>
-  <body>
-    <script src="bundle.js"></script>
-  </body>
-</html>
-```
-
 Update *index.js*:
 
 ```javascript
@@ -210,7 +197,7 @@ Run `npm start`:
 Meow meow, I am Toby
 ```
 
-> You: What's happening here? What's bundle.js?
+> You: What's happening here?
 
 ## React setup
 
@@ -221,6 +208,22 @@ npm install --save react@15.3.2 react-dom@15.3.2
 ```
 
 > You: What's react dom?
+
+Then add a "dist" folder with an *index.html* file:
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>React Intro</title>
+  </head>
+  <body>
+    <script src="bundle.js"></script>
+  </body>
+</html>
+```
+
+> What's bundle.js?
 
 Add a `div` to the *index.html*:
 

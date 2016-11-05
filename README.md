@@ -2,9 +2,9 @@
 
 Quick intro to [React](https://facebook.github.io/react/)...
 
-Contents:
+**Contents:**
 
-1. [What is React?](https://github.com/mjhea0/react-intro#project-setup)
+1. [What is React?](https://github.com/mjhea0/react-intro#what-is-react)
 1. [Project setup](https://github.com/mjhea0/react-intro#project-setup)
 1. [Lint the code](https://github.com/mjhea0/react-intro#lint-the-code)
 1. [Add a cat](https://github.com/mjhea0/react-intro#add-a-cat)
@@ -13,6 +13,8 @@ Contents:
 
 ## What is React?
 
+> YOU: What is React? How does it compare to Angular?
+
 ## Project setup
 
 Create a new project directory:
@@ -20,14 +22,16 @@ Create a new project directory:
 ```sh
 $ mkdir react-intro
 $ cd react-intro
-$ npm init
+$ npm init -y
 ```
 
 Install gulp and babel:
 
 ```sh
-$ npm install --save-dev gulp gulp-babel babel-preset-latest
+$ npm install --save-dev gulp@3.9.1 gulp-babel@6.1.2 babel-preset-latest@6.16.0
 ```
+
+> YOU: What's babel? What does `babel-preset-latest` do?
 
 Then add the following to *package.json*:
 
@@ -39,7 +43,7 @@ Then add the following to *package.json*:
 }
 ```
 
-Create a *gulpfile.js*:
+Create a *gulpfile.js* in the project root:
 
 ```javascript
 const gulp = require('gulp');
@@ -52,7 +56,7 @@ gulp.task('build', () =>
 );
 ```
 
-Now add a "src" and "lib" folder, and then add an *index.js* file to the "src":
+Now add a "src" and "lib" folder, and then add an *index.js* file to the "src" to test babel:
 
 ```javascript
 console.log('hello, world!');
@@ -79,6 +83,8 @@ npm start
 [10:46:26] Finished 'build' after 615 ms
 hello, world!
 ```
+
+> You: What happened?
 
 ## Lint the code
 

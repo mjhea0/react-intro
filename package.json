@@ -1,7 +1,7 @@
 {
   "name": "react-intro",
   "version": "0.0.0",
-  "description": "Just an into to ReactJS",
+  "description": "Just an into to React",
   "scripts": {
     "start": "gulp lint && webpack"
   },

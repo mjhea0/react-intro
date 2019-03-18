@@ -2,16 +2,10 @@
   "name": "react-intro",
   "version": "0.0.0",
   "description": "Just an into to React",
-  "scripts": {
-    "start": "gulp lint && webpack"
-  },
   "author": "Michael Herman",
   "license": "MIT",
-  "babel": {
-    "presets": [
-      "latest",
-      "react"
-    ]
+  "scripts": {
+    "start": "gulp lint && webpack"
   },
   "eslintConfig": {
     "extends": "airbnb",
@@ -23,21 +17,24 @@
     }
   },
   "devDependencies": {
-    "babel-loader": "^6.2.5",
-    "babel-preset-latest": "^6.16.0",
-    "babel-preset-react": "^6.16.0",
-    "eslint": "^3.7.1",
-    "eslint-config-airbnb": "^12.0.0",
-    "eslint-plugin-import": "^2.0.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
-    "eslint-plugin-react": "^6.3.0",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-eslint": "^3.0.1",
-    "webpack": "^1.13.2"
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "eslint": "^5.15.2",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-eslint": "^5.0.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
   },
   "dependencies": {
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
   }
 }

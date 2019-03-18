@@ -1,8 +1,8 @@
 # Intro to React
 
-Quick intro to [React](https://facebook.github.io/react/)...
+Quick intro to [React](https://reactjs.org/).
 
-**Contents:**
+### Contents
 
 1. [What is React?](https://github.com/mjhea0/react-intro#what-is-react)
 1. [Project setup](https://github.com/mjhea0/react-intro#project-setup)
@@ -11,16 +11,17 @@ Quick intro to [React](https://facebook.github.io/react/)...
 1. [React setup](https://github.com/mjhea0/react-intro#react-setup)
 1. [Webpack setup](https://github.com/mjhea0/react-intro#webpack-setup)
 
-**Objectives:**
+### Objectives
 
-1. Explain what React is and how it compares to Angular
+By the end of this tutorial, you should be able to:
+
+1. Explain what React is and how it compares to Angular and Vue
 1. Set up a modern React environment with Babel and Webpack
 1. Create and render a React component in the browser
 
 ## What is React?
 
-> YOU: What is React? How does it compare to Angular?
-
+> YOUR TURN: What is React? How does it compare to Angular and Vue?
 
 ## Project setup
 
@@ -35,32 +36,24 @@ $ npm init -y
 Install gulp and babel:
 
 ```sh
-$ npm install --save-dev gulp@3.9.1 gulp-babel@6.1.2 babel-preset-latest@6.16.0
+$ npm install --save-dev gulp@4.0.0 gulp-babel@8.0.0 @babel/core@7.3.4 @babel/preset-env@7.3.4
 ```
 
-> YOU: What's babel? What does `babel-preset-latest` do?
+> YOUR TURN: What's babel? What does `@babel/preset-env` do?
 
-Then add the following to *package.json*:
 
-```json
-"babel": {
-  "presets": [
-    "latest"
-  ]
-}
-```
-
-Create a *gulpfile.js* in the project root:
+Create a *gulpfile.js* file in the project root:
 
 ```javascript
 const gulp = require('gulp');
 const babel = require('gulp-babel');
 
-gulp.task('build', () =>
+gulp.task('build', (done) => {
   gulp.src(['src/**/*.js'])
-  .pipe(babel())
-  .pipe(gulp.dest('lib'))
-);
+    .pipe(babel({ presets: ['@babel/preset-env'] }))
+    .pipe(gulp.dest('lib'));
+  done();
+});
 ```
 
 Now add a "src" and "lib" folder, and then add an *index.js* file to the "src" to test babel:
@@ -80,30 +73,30 @@ Finally, add a `start` script to *package.json*:
 Sanity Check:
 
 ```sh
-npm start
+$ npm start
 
 > react-intro@0.0.0 start /react-intro
 > gulp build && node lib/index.js
 
-[10:46:26] Using gulpfile ~/react-intro/gulpfile.js
-[10:46:26] Starting 'build'...
-[10:46:26] Finished 'build' after 615 ms
+[18:00:21] Using gulpfile ~/react-intro/gulpfile.js
+[18:00:21] Starting 'build'...
+[18:00:22] Finished 'build' after 361 ms
 hello, world!
 ```
 
-> You: What happened?
+> YOUR TURN: What happened?
 
 ## Lint the code
 
 Install:
 
 ```sh
-$ npm install --save-dev eslint@3.7.1 eslint-config-airbnb@12.0.0
-$ npm install --save-dev eslint-plugin-import@2.0.0 eslint-plugin-jsx-a11y@2.2.2
-$ npm install --save-dev eslint-plugin-react@6.3.0 gulp-eslint@3.0.1
+$ npm install --save-dev eslint@5.15.2 eslint-config-airbnb@17.1.0
+$ npm install --save-dev eslint-plugin-import@2.16.0 eslint-plugin-jsx-a11y@6.2.1
+$ npm install --save-dev eslint-plugin-react@7.12.4 gulp-eslint@5.0.0
 ```
 
-> You: Why lint? What do those packages do?
+> YOUR TURN: Why lint? What do those packages do?
 
 Add the config to *package.json*:
 
@@ -119,15 +112,16 @@ Add the config to *package.json*:
 Update *gulpfile.js* with a new task:
 
 ```javascript
-gulp.task('lint', () =>
+gulp.task('lint', (done) => {
   gulp.src([
     'gulpfile.js',
     'src/**/*.js',
   ])
-  .pipe(eslint())
-  .pipe(eslint.format())
-  .pipe(eslint.failAfterError())
-);
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+  done();
+});
 ```
 
 Make sure to add the dependency:
@@ -139,11 +133,12 @@ const eslint = require('gulp-eslint');
 Then add the `lint` task to the `build`:
 
 ```javascript
-gulp.task('build', ['lint'], () =>
+gulp.task('build', gulp.series('lint', (done) => {
   gulp.src(['src/**/*.js'])
-  .pipe(babel())
-  .pipe(gulp.dest('lib'))
-);
+    .pipe(babel({ presets: ['@babel/preset-env'] }))
+    .pipe(gulp.dest('lib'));
+  done();
+}));
 ```
 
 Run the linter:
@@ -163,7 +158,7 @@ You should see a warning:
 
 Ignore it.
 
-> You: Why are we ignoring it?
+> YOUR TURN: Why are we ignoring it?
 
 ## Add a cat
 
@@ -174,6 +169,7 @@ class Cat {
   constructor(name) {
     this.name = name;
   }
+
   meow() {
     return `Meow meow, I am ${this.name}`;
   }
@@ -197,17 +193,17 @@ Run `npm start`:
 Meow meow, I am Toby
 ```
 
-> You: What's happening here?
+> YOUR TURN: What's happening here?
 
 ## React setup
 
 Install:
 
 ```sh
-npm install --save react@15.3.2 react-dom@15.3.2
+$ npm install --save react@16.8.4 react-dom@16.8.4 prop-types@15.7.2
 ```
 
-> You: What's react dom?
+> YOUR TURN: What's React DOM?
 
 Then add a "dist" folder with an *index.html* file:
 
@@ -223,9 +219,9 @@ Then add a "dist" folder with an *index.html* file:
 </html>
 ```
 
-> What's bundle.js?
+> YOUR TURN: What's bundle.js?
 
-Add a `div` to the *index.html*:
+Add a `div` to the *index.html*, just above the `script` tag:
 
 ```html
 <div class="app"></div>
@@ -234,17 +230,22 @@ Add a `div` to the *index.html*:
 Create a new file in "src" called *client.jsx*:
 
 ```javascript
-import React, { PropTypes } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import Cat from './cats';
 
 const catMeow = new Cat('Browser Cat').meow();
 
-const App = props => (
-  <div>
-    The cat says: {props.message}
-  </div>
-);
+const App = (props) => {
+  const { message } = props;
+  return (
+    <div>
+      The cat says:&nbsp;
+      { message }
+    </div>
+  );
+};
 
 App.propTypes = {
   message: PropTypes.string.isRequired,
@@ -253,53 +254,55 @@ App.propTypes = {
 ReactDOM.render(<App message={catMeow} />, document.querySelector('.app'));
 ```
 
-> You: Is that HTML in a JS file? Why? What's JSX? Also, what does babel-preset-react do?
+> YOUR TURN: Is that HTML in a JS file? Why? What's JSX? Also, what does @babel/preset-react do?
 
 To process the *.jsx* file, install:
 
 ```sh
-$ npm install --save-dev babel-preset-react@6.16.0
+$ npm install --save-dev @babel/preset-react@7.0.0
 ```
 
-Update the `babel` field in *package.json*:
+Add the preset to the `build` task in *gulpfile.js*:
 
-```json
-"babel": {
-  "presets": [
-    "latest",
-    "react"
-  ]
-},
+```javascript
+gulp.task('build', gulp.series('lint', (done) => {
+  gulp.src(['src/**/*.js'])
+    .pipe(babel({ presets: ['@babel/preset-env', '@babel/preset-react'] }))
+    .pipe(gulp.dest('lib'));
+  done();
+}));
 ```
 
 Finally, update the `lint` task to handle *.jsx* files:
 
 ```javascript
-gulp.task('lint', () =>
+gulp.task('lint', (done) => {
   gulp.src([
+    'gulpfile.js',
     'src/**/*.js',
     'src/**/*.jsx',
   ])
-  .pipe(eslint())
-  .pipe(eslint.format())
-  .pipe(eslint.failAfterError())
-);
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+  done();
+});
 ```
 
 Run the linter:
 
 ```sh
-$ gulp lint
+$ ./node_modules/.bin/gulp lint
 ```
 
 You should see the following error:
 
 ```sh
 /react-intro/src/client.jsx
-  17:44  error  'document' is not defined  no-undef
+  22:44  error  'document' is not defined  no-undef
 ```
 
-> You: Why did we get this error?
+> YOUR TURN: Why did we get this error?
 
 To correct this, update the `eslintConfig` in *package.json*:
 
@@ -320,35 +323,49 @@ To correct this, update the `eslintConfig` in *package.json*:
 Install:
 
 ```sh
-$ npm install --save-dev webpack@1.13.2 babel-loader@6.2.5
+$ npm install --save-dev webpack@4.29.6 webpack-cli@3.3.0 babel-loader@8.0.5
 ```
 
-> You: What's webpack? What does babel-loader do? Why all these damn tools?!?!
+> YOUR TURN: What's webpack? What does babel-loader do? Why all these damn tools?!?!
 
 Then add *webpack.config.js* to the project root:
 
 ```javascript
+const path = require('path');
+
 module.exports = {
+  mode: 'development',
   entry: './src/client.jsx',
   output: {
-    path: './dist',
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader',
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                '@babel/preset-env',
+                '@babel/preset-react',
+              ]
+            },
+          },
+        ],
       },
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['*', '.js', '.jsx'],
   },
-};
+}
 ```
 
-Update the `start` script to *package.json*:
+Update the `start` script in *package.json*:
 
 ```json
 "start": "gulp lint && webpack"

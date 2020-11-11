@@ -36,7 +36,7 @@ $ npm init -y
 Install gulp and babel:
 
 ```sh
-$ npm install --save-dev gulp@4.0.0 gulp-babel@8.0.0 @babel/core@7.3.4 @babel/preset-env@7.3.4
+$ npm install --save-dev gulp@4.0.2 gulp-babel@8.0.0 @babel/core@7.12.1 @babel/preset-env@7.12.1
 ```
 
 > YOUR TURN: What's babel? What does `@babel/preset-env` do?
@@ -91,9 +91,9 @@ hello, world!
 Install:
 
 ```sh
-$ npm install --save-dev eslint@5.15.2 eslint-config-airbnb@17.1.0
-$ npm install --save-dev eslint-plugin-import@2.16.0 eslint-plugin-jsx-a11y@6.2.1
-$ npm install --save-dev eslint-plugin-react@7.12.4 gulp-eslint@5.0.0
+$ npm install --save-dev eslint@7.13.0 eslint-config-airbnb@18.2.1
+$ npm install --save-dev eslint-plugin-import@2.22.1 eslint-plugin-jsx-a11y@6.4.1
+$ npm install --save-dev eslint-plugin-react@7.21.5 gulp-eslint@6.0.0
 ```
 
 > YOUR TURN: Why lint? What do those packages do?
@@ -200,7 +200,7 @@ Meow meow, I am Toby
 Install:
 
 ```sh
-$ npm install --save react@16.8.4 react-dom@16.8.4 prop-types@15.7.2
+$ npm install --save react@17.0.1 react-dom@17.0.1 prop-types@15.7.2
 ```
 
 > YOUR TURN: What's React DOM?
@@ -221,7 +221,7 @@ Then add a "dist" folder with an *index.html* file:
 
 > YOUR TURN: What's bundle.js?
 
-Add a `div` to the *index.html*, just above the `script` tag:
+Add a `div` to the *index.html* file, just above the `script` tag:
 
 ```html
 <div class="app"></div>
@@ -259,7 +259,7 @@ ReactDOM.render(<App message={catMeow} />, document.querySelector('.app'));
 To process the *.jsx* file, install:
 
 ```sh
-$ npm install --save-dev @babel/preset-react@7.0.0
+$ npm install --save-dev @babel/preset-react@7.12.5
 ```
 
 Add the preset to the `build` task in *gulpfile.js*:
@@ -323,7 +323,7 @@ To correct this, update the `eslintConfig` in *package.json*:
 Install:
 
 ```sh
-$ npm install --save-dev webpack@4.29.6 webpack-cli@3.3.0 babel-loader@8.0.5
+$ npm install --save-dev webpack@5.4.0 webpack-cli@4.2.0 babel-loader@8.2.1
 ```
 
 > YOUR TURN: What's webpack? What does babel-loader do? Why all these damn tools?!?!

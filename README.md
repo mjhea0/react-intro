@@ -36,7 +36,7 @@ $ npm init -y
 Install gulp and babel:
 
 ```sh
-$ npm install --save-dev gulp@4.0.2 gulp-babel@8.0.0 @babel/core@7.12.1 @babel/preset-env@7.12.1
+$ npm install --save-dev gulp@4.0.2 gulp-babel@8.0.0 @babel/core@7.21.0 @babel/preset-env@7.20.2
 ```
 
 > YOUR TURN: What's babel? What does `@babel/preset-env` do?
@@ -91,9 +91,9 @@ hello, world!
 Install:
 
 ```sh
-$ npm install --save-dev eslint@7.13.0 eslint-config-airbnb@18.2.1
-$ npm install --save-dev eslint-plugin-import@2.22.1 eslint-plugin-jsx-a11y@6.4.1
-$ npm install --save-dev eslint-plugin-react@7.21.5 gulp-eslint@6.0.0
+$ npm install --save-dev eslint@8.35.0 eslint-config-airbnb@18.2.1
+$ npm install --save-dev eslint-plugin-import@2.27.5 eslint-plugin-jsx-a11y@6.7.1
+$ npm install --save-dev eslint-plugin-react@7.32.2 gulp-eslint@6.0.0
 ```
 
 > YOUR TURN: Why lint? What do those packages do?
@@ -200,7 +200,7 @@ Meow meow, I am Toby
 Install:
 
 ```sh
-$ npm install --save react@17.0.1 react-dom@17.0.1 prop-types@15.7.2
+$ npm install --save react@18.2.0 react-dom@18.2.0 prop-types@15.8.1
 ```
 
 > YOUR TURN: What's React DOM?
@@ -259,7 +259,7 @@ ReactDOM.render(<App message={catMeow} />, document.querySelector('.app'));
 To process the *.jsx* file, install:
 
 ```sh
-$ npm install --save-dev @babel/preset-react@7.12.5
+$ npm install --save-dev @babel/preset-react@7.18.6
 ```
 
 Add the preset to the `build` task in *gulpfile.js*:
@@ -323,7 +323,7 @@ To correct this, update the `eslintConfig` in *package.json*:
 Install:
 
 ```sh
-$ npm install --save-dev webpack@5.4.0 webpack-cli@4.2.0 babel-loader@8.2.1
+$ npm install --save-dev webpack@5.75.0 webpack-cli@5.0.1 babel-loader@9.1.2 ajv@8.12.0
 ```
 
 > YOUR TURN: What's webpack? What does babel-loader do? Why all these damn tools?!?!
